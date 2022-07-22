@@ -1,0 +1,22 @@
+{
+  "Mage:FrostBolt": {
+    "NAME": "寒冰箭",
+    "DESCRIPTIONS": [
+      "冻结 #y一回合 ，无法 #b攻击"
+    ]
+  },
+  "Mage:IceProtectionPower": {
+    "NAME": "寒冰甲",
+    "DESCRIPTIONS": [
+      "受到 #y攻击 ，获得 #b",
+      " 护甲。"
+    ]
+  },
+  "Mage:FireWard": {
+    "NAME": "火焰屏障",
+    "DESCRIPTIONS": [
+      "每受到一次 #y攻击 ，对所有敌人造成 #b",
+      " 点伤害。"
+    ]
+  }
+}

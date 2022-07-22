@@ -1,0 +1,46 @@
+{
+  "Mage:Strike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "Mage:Defend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点格挡。"
+  },
+  "Mage:SavePower": {
+    "NAME": "凝神",
+    "DESCRIPTION": " 保留 。 NL 你的下一张攻击牌造成 !M! 点额外伤害。"
+  },
+  "Mage:Printf": {
+    "NAME": "printf(%d)",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将一张凝神加入手牌 。"
+  },
+  "Mage:FrostBolt": {
+    "NAME": "寒冰箭",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 对方无法攻击"
+  },
+  "Mage:IceProtection": {
+  "NAME": "寒冰护体",
+  "DESCRIPTION": "当你的受到攻击时 获得 !B! 点格挡。"
+  },
+  "Mage:FireWard": {
+    "NAME": "火焰结界",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 在你的受到攻击时，对所有敌人造成 !M! 点伤害。"
+  },
+  "Mage:ArcaneWisdom": {
+    "NAME": "奥术智慧",
+    "DESCRIPTION": "抽 !M! 两张卡。"
+  },
+  "Mage:FireBall": {
+    "NAME": "火球术",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "Mage:FlamePillar": {
+    "NAME": "炎爆",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "Mage:Firestorm": {
+    "NAME": "烈焰风暴",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。"
+  }
+}

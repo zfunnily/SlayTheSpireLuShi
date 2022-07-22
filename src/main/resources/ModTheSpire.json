@@ -1,0 +1,10 @@
+{
+  "modid": "BattleNet",
+  "name": "BattleNet",
+  "author_list": ["catrefine"],
+  "description": "炉石传说",
+  "version": "0.0.1",
+  "sts_version": "03-07-2022",
+  "mts_version": "3.24.0",
+  "dependencies": ["basemod"]
+}
