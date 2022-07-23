@@ -14,13 +14,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class FireBall extends CustomCard {
     // 从json中初始化Strike
-    private static final String ID = ModHelper.MakePath("FireBall");
+    public static final String ID = ModHelper.MakePath("FireBall");
     private static final CardStrings cardstr = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String Name =cardstr.NAME;
     private static final String ImgPath = ModHelper.MakeAssetPath("img/cards/Strike.png");
     private static final int Cost = 2;
     private static final String Desc =cardstr.DESCRIPTION;
-    private static final CardType CType = CardType.ATTACK;
+    private static final CardType CType = CardType.SKILL;
     private static final AbstractCard.CardColor CColor = AbstractCardEnum.MAGE_COLOR;
     private static final CardRarity CRarity = CardRarity.BASIC;
     private static final CardTarget CTarget = CardTarget.ENEMY;

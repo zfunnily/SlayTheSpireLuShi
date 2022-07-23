@@ -90,8 +90,10 @@ public class MageMod implements RelicGetSubscriber, PostPowerApplySubscriber, Po
 
     @Override
     public void receiveEditCharacters() {
+        BaseMod.logger.info("==添加角色==");
         //添加角色到MOD中
         BaseMod.addCharacter((AbstractPlayer)new Mage("Mage"), MY_CHARACTER_BUTTON, MY_CHARACTER_PORTRAIT, ThmodClassEnum.Mage_Class);
+        BaseMod.logger.info("==完成添加角色==");
 
     }
 

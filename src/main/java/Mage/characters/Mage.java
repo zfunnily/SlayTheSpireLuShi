@@ -1,7 +1,12 @@
 package Mage.characters;
 
+import Mage.cards.Defend;
+import Mage.cards.FireBall;
+import Mage.cards.FrostBolt;
+import Mage.cards.Strike;
 import Mage.helps.ModHelper;
 import Mage.pathes.ThmodClassEnum;
+import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -12,9 +17,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.events.beyond.SpireHeart;
+import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.relics.Vajra;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import Mage.pathes.AbstractCardEnum;
@@ -44,7 +52,7 @@ public class Mage extends CustomPlayer {
     public static final Color SILVER = CardHelper.getColor(200, 200, 200);
 
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
-    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ModHelper.MakeCharacterPath("Gem"));
+    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ModHelper.MakePath("Gem"));
 
     public Mage(String name) {
         super(name, ThmodClassEnum.Mage_Class, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, (String)null, (String)null);
@@ -64,16 +72,14 @@ public class Mage extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         //添加初始卡组
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(ModHelper.MakePath("Strike"));
-        retVal.add(ModHelper.MakePath("Strike"));
-        retVal.add(ModHelper.MakePath("Strike"));
-        retVal.add(ModHelper.MakePath("Strike"));
-        retVal.add(ModHelper.MakePath("Strike"));
-        retVal.add(ModHelper.MakePath("Defend"));
-        retVal.add(ModHelper.MakePath("Defend"));
-        retVal.add(ModHelper.MakePath("Defend"));
-        retVal.add(ModHelper.MakePath("Defend"));
-        retVal.add(ModHelper.MakePath("Defend"));
+        for(int x = 0; x<5; x++) {
+            retVal.add(Strike.ID);
+        }
+        for(int x = 0; x<5; x++) {
+            retVal.add(Defend.ID);
+        }
+        retVal.add(FrostBolt.ID);
+        retVal.add(FireBall.ID);
         return retVal;
     }
 
@@ -81,27 +87,16 @@ public class Mage extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         //添加初始遗物
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(ModHelper.MakePath("MyRelic"));
-//        retVal.add(Vajra.ID);
-        UnlockTracker.markRelicAsSeen(MyRelic.ID);
+        retVal.add(MyRelic.ID);
+//        UnlockTracker.markRelicAsSeen(MyRelic.ID);
         return retVal;
     }
 
     @Override
     public CharSelectInfo getLoadout() {
         //选英雄界面的文字描述
-        String title="";
-        String flavor="";
-        if (Settings.language == Settings.GameLanguage.ZHS) {
-            title = "吉安娜";
-            flavor = "初出茅庐的法师， NL 每天要面对各种数不清的法术学习和除怪任务。";
-        } else if (Settings.language == Settings.GameLanguage.ZHT) {
-            //当设定为台湾，title和flavor为繁体描述
-        } else {
-            //其他用英文替代
-        }
-
-        return new CharSelectInfo(title, flavor,
+        return new CharSelectInfo(  characterStrings.NAMES[0], // 人物名字
+                characterStrings.TEXT[0], // 人物介绍
                 STARTING_HP,
                 MAX_HP,HAND_SIZE,
                 STARTING_GOLD,
@@ -140,9 +135,10 @@ public class Mage extends CustomPlayer {
         return SILVER;
     }
 
+    // 翻牌事件出现的你的职业牌（一般设为打击）
     @Override
     public AbstractCard getStartCardForEvent() {
-        return null;
+        return new Strike();
     }
 
     @Override
@@ -160,39 +156,33 @@ public class Mage extends CustomPlayer {
         return FontHelper.energyNumFontBlue;
     }
 
+    // 人物选择界面点击你的人物按钮时触发的方法，这里为屏幕轻微震动
     @Override
     public void doCharSelectScreenSelectEffect() {
-
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
     }
     public void updateOrb(int orbCount) {
         this.energyOrb.updateOrb(orbCount);
     }
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return null;
+        return "ATTACK_HEAVY";
     }
 
     @Override
     public String getLocalizedCharacterName() {
-        String char_name;
-        if (Settings.language == Settings.GameLanguage.ZHS) {
-            char_name = "莎莉丝";
-        } else if (Settings.language == Settings.GameLanguage.ZHT) {
-            char_name = "莎莉絲";
-        } else {
-            char_name = "Seles";
-        }
-        return char_name;
+        return characterStrings.NAMES[0];
     }
 
     @Override
     public AbstractPlayer newInstance() {
+        BaseMod.logger.info("==加载角色==");
         return (AbstractPlayer)new Mage(this.name);
     }
 
     @Override
     public String getSpireHeartText() {
-        return SpireHeart.DESCRIPTIONS[15];
+        return characterStrings.TEXT[1];
     }
 
     @Override
@@ -205,10 +195,10 @@ public class Mage extends CustomPlayer {
         return new AbstractGameAction.AttackEffect[] { AbstractGameAction.AttackEffect.BLUNT_LIGHT, AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.BLUNT_LIGHT, AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.BLUNT_LIGHT };
     }
 
+    // 吸血鬼事件文本，主要是他（索引为0）和她（索引为1）的区别（机器人另外）
     @Override
     public String getVampireText() {
-
-        return null;
+        return Vampires.DESCRIPTIONS[0];
     }
     public void applyEndOfTurnTriggers() {
         super.applyEndOfTurnTriggers();

@@ -24,7 +24,7 @@ public class FireWard extends CustomCard {
     private static final String ImgPath = ModHelper.MakeAssetPath("img/cards/Strike.png");
     private static final int Cost = 1;
     private static final String Desc =cardstr.DESCRIPTION;
-    private static final CardType CType = CardType.ATTACK;
+    private static final CardType CType = CardType.SKILL;
     private static final CardColor CColor = AbstractCardEnum.MAGE_COLOR;
     private static final CardRarity CRarity = CardRarity.BASIC;
     private static final CardTarget CTarget = CardTarget.SELF;
@@ -37,7 +37,8 @@ public class FireWard extends CustomCard {
                 CType, CColor, CRarity, CTarget);
 
         // 添加基础攻击
-        this.damage = this.baseDamage = AttackDmg;
+        this.block = this.baseBlock = 6;
+        this.magicNumber = this.baseMagicNumber  = AttackDmg;
 
         this.tags.add(CardTags.STARTER_STRIKE);
     }
@@ -47,7 +48,8 @@ public class FireWard extends CustomCard {
         // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(UpDmg);
+//            this.upgradeDamage(UpDmg);
+            this.upgradeMagicNumber(UpDmg);
         }
     }
 

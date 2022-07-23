@@ -2,7 +2,7 @@
   "Mage:FrostBolt": {
     "NAME": "寒冰箭",
     "DESCRIPTIONS": [
-      "冻结 #y一回合 ，无法 #b攻击"
+      "冻结 #y一回合 ，无法 #b攻击。"
     ]
   },
   "Mage:IceProtectionPower": {

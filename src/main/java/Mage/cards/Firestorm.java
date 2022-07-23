@@ -20,7 +20,7 @@ public class Firestorm extends CustomCard {
     private static final String ImgPath = ModHelper.MakeAssetPath("img/cards/Strike.png");
     private static final int Cost = 1;
     private static final String Desc =cardstr.DESCRIPTION;
-    private static final CardType CType = CardType.ATTACK;
+    private static final CardType CType = CardType.SKILL;
     private static final CardColor CColor = AbstractCardEnum.MAGE_COLOR;
     private static final CardRarity CRarity = CardRarity.BASIC;
     private static final CardTarget CTarget = CardTarget.ALL_ENEMY;

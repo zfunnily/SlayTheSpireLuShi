@@ -17,7 +17,7 @@
   },
   "Mage:FrostBolt": {
     "NAME": "寒冰箭",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 对方无法攻击"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL对方无法攻击。"
   },
   "Mage:IceProtection": {
   "NAME": "寒冰护体",
@@ -25,7 +25,7 @@
   },
   "Mage:FireWard": {
     "NAME": "火焰结界",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 在你的受到攻击时，对所有敌人造成 !M! 点伤害。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 在你的受到攻击时， NL 对所有敌人造成 !M! 点伤害。"
   },
   "Mage:ArcaneWisdom": {
     "NAME": "奥术智慧",

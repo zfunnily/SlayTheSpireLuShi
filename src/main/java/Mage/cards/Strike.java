@@ -19,7 +19,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
  */
 public class Strike extends CustomCard {
     // 从json中初始化Strike
-    private static final String ID = ModHelper.MakePath("Strike");
+    public static final String ID = ModHelper.MakePath("Strike");
     private static final CardStrings cardstr = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String Name =cardstr.NAME;
     private static final String ImgPath = ModHelper.MakeAssetPath("img/cards/Strike.png");

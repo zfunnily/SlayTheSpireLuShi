@@ -11,6 +11,6 @@ public class ModHelper {
     }
 
     public static  String MakeCharacterPath(String name) {
-        return TAG + name;
+        return TAG+ ":"+ name;
     }
 }

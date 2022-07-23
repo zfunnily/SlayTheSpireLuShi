@@ -22,13 +22,13 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
  */
 public class FrostBolt extends CustomCard {
     // 从json中初始化Strike
-    private static final String ID = ModHelper.MakePath("FrostBolt");
+    public static final String ID = ModHelper.MakePath("FrostBolt");
     private static final CardStrings cardstr = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String Name =cardstr.NAME;
     private static final String ImgPath = ModHelper.MakeAssetPath("img/cards/Strike.png");
     private static final int Cost = 1;
     private static final String Desc =cardstr.DESCRIPTION;
-    private static final CardType CType = CardType.ATTACK;
+    private static final CardType CType = CardType.SKILL;
     private static final CardColor CColor = AbstractCardEnum.MAGE_COLOR;
     private static final CardRarity CRarity = CardRarity.BASIC;
     private static final CardTarget CTarget = CardTarget.ENEMY;
