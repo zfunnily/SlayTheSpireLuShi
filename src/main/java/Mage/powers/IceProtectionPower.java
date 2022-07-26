@@ -34,13 +34,11 @@ public class IceProtectionPower extends AbstractPower {
             flash();
             this.addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)target,
                     (AbstractCreature)this.owner, this.amount));
+
+            this.addToBot((AbstractGameAction)new RemoveSpecificPowerAction((AbstractCreature) this.owner, (AbstractCreature)this.owner, "IceProtection"));
         }
     }
 
-
-    public void atStartOfTurn() {
-        this.addToBot((AbstractGameAction)new RemoveSpecificPowerAction((AbstractCreature) this.owner, (AbstractCreature)this.owner, "IceProtection"));
-    }
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }

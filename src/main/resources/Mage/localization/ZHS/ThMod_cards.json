@@ -42,5 +42,9 @@
   "Mage:Firestorm": {
     "NAME": "烈焰风暴",
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害。"
+  },
+  "Mage:GreenMourning": {
+    "NAME": "绿哀",
+    "DESCRIPTION": "每回合开始, 所有牌能耗降低 !M! 点。"
   }
 }

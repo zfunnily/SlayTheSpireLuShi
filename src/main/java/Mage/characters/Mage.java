@@ -1,9 +1,6 @@
 package Mage.characters;
 
-import Mage.cards.Defend;
-import Mage.cards.FireBall;
-import Mage.cards.FrostBolt;
-import Mage.cards.Strike;
+import Mage.cards.*;
 import Mage.helps.ModHelper;
 import Mage.pathes.ThmodClassEnum;
 import basemod.BaseMod;
@@ -34,13 +31,24 @@ public class Mage extends CustomPlayer {
     //初始能量
     private static final int ENERGY_PER_TURN = 3;
     //以下图片依次作用为[篝火休息处的角色背影2，篝火休息处的角色背影1，角色死亡后倒下的图片，角色平常站立时的图片]
-    private static final String SELES_SHOULDER_2 = "img/char_Seles/shoulder2.png";
-    private static final String SELES_SHOULDER_1 = "img/char_Seles/shoulder1.png";
-    private static final String SELES_CORPSE = "img/char_Seles/fallen.png";
-    private static final String SELES_STAND = "img/char_Seles/Seles.png";
+    private static final String SELES_SHOULDER_2 = ModHelper.MakeAssetPath("img/char/shoulder2.png");
+    private static final String SELES_SHOULDER_1 = ModHelper.MakeAssetPath("img/char/shoulder1.png");
+    private static final String SELES_CORPSE = ModHelper.MakeAssetPath("img/char/fallen.png");
+    private static final String SELES_STAND = ModHelper.MakeAssetPath("img/char/Seles.png");
     //各种素材，不是很懂
-    private static final String[] ORB_TEXTURES = new String[] { "img/UI_Seles/EPanel/layer5.png", "img/UI_Seles/EPanel/layer4.png", "img/UI_Seles/EPanel/layer3.png", "img/UI_Seles/EPanel/layer2.png", "img/UI_Seles/EPanel/layer1.png", "img/UI_Seles/EPanel/layer0.png", "img/UI_Seles/EPanel/layer5d.png", "img/UI_Seles/EPanel/layer4d.png", "img/UI_Seles/EPanel/layer3d.png", "img/UI_Seles/EPanel/layer2d.png", "img/UI_Seles/EPanel/layer1d.png" };
-    private static final String ORB_VFX = "img/UI_Seles/energyBlueVFX.png";
+    private static final String[] ORB_TEXTURES = new String[] {
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer5.png"),
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer4.png"),
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer3.png"),
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer2.png"),
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer1.png"),
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer0.png"),
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer5d.png"),
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer4d.png"),
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer3d.png"),
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer2d.png"),
+            ModHelper.MakeAssetPath("img/UI/EPanel/layer1d.png") };
+    private static final String ORB_VFX = ModHelper.MakeAssetPath("img/UI/energyBlueVFX.png");
     private static final float[] LAYER_SPEED = new float[] { -40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F };
     //初始生命，最大生命，初始金币,初始的充能球栏位（机器人）,最后一个应该是进阶14时的最大生命值下降
     private static final int STARTING_HP = 75; // 当前血量
@@ -73,13 +81,14 @@ public class Mage extends CustomPlayer {
         //添加初始卡组
         ArrayList<String> retVal = new ArrayList<>();
         for(int x = 0; x<5; x++) {
-            retVal.add(Strike.ID);
+            retVal.add(ModHelper.MakePath("Strike"));
         }
         for(int x = 0; x<5; x++) {
-            retVal.add(Defend.ID);
+            retVal.add(ModHelper.MakePath("Defend"));
         }
-        retVal.add(FrostBolt.ID);
-        retVal.add(FireBall.ID);
+//        retVal.add(FrostBolt.ID);
+//        retVal.add(FireBall.ID);
+//        retVal.add(GreenMourning.ID);
         return retVal;
     }
 

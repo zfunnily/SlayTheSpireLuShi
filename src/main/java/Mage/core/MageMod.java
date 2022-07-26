@@ -51,7 +51,7 @@ public class MageMod implements RelicGetSubscriber, PostPowerApplySubscriber, Po
     // 在卡牌预览界面的能量图标
     private static final String BIG_ORB = ModHelper.MakeAssetPath("img/1024/SELESOrb.png");
     // 小尺寸的能量图标（战斗中，牌堆预览）
-    private static final String ENEYGY_ORB = ModHelper.MakeAssetPath("img/UI_Seles/energyOrb.png");
+    private static final String ENEYGY_ORB = ModHelper.MakeAssetPath("img/UI/energyOrb.png");
 
     public static final Color SILVER = CardHelper.getColor(200, 200, 200);
     public MageMod() {
@@ -84,6 +84,7 @@ public class MageMod implements RelicGetSubscriber, PostPowerApplySubscriber, Po
         BaseMod.addCard(new FireWard());
         BaseMod.addCard(new FlamePillar());
         BaseMod.addCard(new FrostBolt());
+        BaseMod.addCard(new GreenMourning());
         BaseMod.addCard(new IceProtection());
         BaseMod.logger.info("===添加卡牌完成===");
     }
