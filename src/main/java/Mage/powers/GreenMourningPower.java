@@ -18,17 +18,22 @@ public class GreenMourningPower extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public GreenMourningPower(AbstractCreature owner, int thornsDamage) {
+        logger.info("使用绿哀开始...");
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = thornsDamage;
         updateDescription();
 //        loadRegion("fireWard");
+        logger.info("使用绿哀结束");
+        this.priority = 25;
     }
 
     public void atStartOfTurn() {
-        addToBot((AbstractGameAction)new GreenMourningAction(this.amount));
-//        flash();
+        logger.info("回合开始.....");
+        flash();
+        this.addToBot((AbstractGameAction)new GreenMourningAction(this.amount));
+        logger.info("回合结束");
     }
 
     public void updateDescription() {

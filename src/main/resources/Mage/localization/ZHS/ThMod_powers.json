@@ -22,7 +22,7 @@
   "Mage:GreenMourning": {
     "NAME": "绿哀",
     "DESCRIPTIONS": [
-      "每回合开始, 所有牌能耗降低 !M!",
+      "每回合开始, 所有牌能耗降低 #b",
       " 点"
     ]
   }

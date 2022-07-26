@@ -9,6 +9,8 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.Establishment;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -32,17 +34,13 @@ public class GreenMourning extends CustomCard {
     private static final String Desc =cardstr.DESCRIPTION;
     private static final CardType CType = CardType.POWER;
     private static final CardColor CColor = AbstractCardEnum.MAGE_COLOR;
-    private static final CardRarity CRarity = CardRarity.BASIC;
+    private static final CardRarity CRarity = CardRarity.RARE;
     private static final CardTarget CTarget = CardTarget.SELF;
 
     public GreenMourning() {
         super(ID, Name, ImgPath, Cost, Desc,
                 CType, CColor, CRarity, CTarget);
-
-        // 添加基础防御
         this.magicNumber= this.baseMagicNumber= 1;
-        // 添加STARTER_STRIKE（基础防御）
-        this.tags.add(CardTags.STARTER_DEFEND);
     }
 
     @Override
@@ -56,9 +54,12 @@ public class GreenMourning extends CustomCard {
 
     @Override
     public void use(AbstractPlayer ap, AbstractMonster am) {
-       this.addToBot((AbstractGameAction)new GreenMourningAction(this.magicNumber));
+//       this.addToBot((AbstractGameAction)new GreenMourningAction(this.magicNumber));
        this.addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature)ap, (AbstractCreature)ap,
-                (AbstractPower)new GreenMourningPower(am,this.magicNumber)));
+                (AbstractPower)new GreenMourningPower(ap,this.magicNumber), this.magicNumber));
 
+    }
+    public AbstractCard makeCopy() {
+        return new GreenMourning();
     }
 }
